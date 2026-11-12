@@ -65,5 +65,41 @@ public class HeapTest {
     assertEquals(-6, heap.peek());
 }
 
+// AI Helped create these additional test
+
+// Tests duplicate values
+@Test
+public void testDuplicateNumbers() {
+    Heap heap = new Heap();
+
+    heap.add(4);
+    heap.add(4);
+    heap.add(4);
+
+    assertEquals(4, heap.pop());
+    assertEquals(4, heap.pop());
+    assertEquals(4, heap.pop());
+}
+
+// Tests single element heap
+@Test
+public void testSingleElementHeap() {
+    Heap heap = new Heap();
+
+    heap.add(7);
+    assertEquals(7, heap.pop());
+
+    assertTrue(heap.isEmpty());
+}
+
+// Tests  empty heap exceptions
+@Test
+public void testEmptyHeap() {
+    Heap heap = new Heap();
+
+    assertThrows(NoSuchElementException.class, () -> heap.pop());
+    assertThrows(NoSuchElementException.class, () -> heap.peek());
+}
+
 
 }
