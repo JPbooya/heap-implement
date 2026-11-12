@@ -117,5 +117,62 @@ public void testDuplicateWithDifferentNumbers() {
     assertTrue(heap.isEmpty());
 }
 
+// Tests multiple negative numbers
+@Test
+public void testMultipleNegativeNumbers() {
+    Heap heap = new Heap();
+
+    heap.add(-10);
+    heap.add(5);
+    heap.add(-20);
+
+    assertEquals(-20, heap.pop());
+    assertEquals(-10, heap.pop());
+    assertEquals(5, heap.pop());
+
+    assertTrue(heap.isEmpty());
+}
+
+// Tests adding and removing elements multiple times
+@Test
+public void testRepeatedAddAndPop() {
+    Heap heap = new Heap();
+
+    heap.add(10);
+    heap.add(4);
+    heap.add(15);
+    heap.add(2);
+
+    assertEquals(2, heap.pop());
+    assertEquals(4, heap.pop());
+
+    heap.add(1);
+    heap.add(8);
+
+    assertEquals(1, heap.pop());
+    assertEquals(8, heap.pop());
+    assertEquals(10, heap.pop());
+    assertEquals(15, heap.pop());
+
+    assertTrue(heap.isEmpty());
+}
+
+// Tests that peek does not remove an element
+@Test
+public void testPeekDoesNotRemove() {
+    Heap heap = new Heap();
+
+    heap.add(10);
+    heap.add(3);
+    heap.add(7);
+
+    assertEquals(3, heap.peek());
+    assertEquals(3, heap.peek());
+    assertEquals(3, heap.size());
+
+    assertEquals(3, heap.pop());
+    assertEquals(2, heap.size());
+}
+
 
 }
