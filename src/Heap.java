@@ -36,7 +36,7 @@ public class Heap {
 
   public void add(int value) {
     data.add(value);
-    siftUp(data.size() -1);
+    siftUp(data.size() - 1);
   }
 
   public int size() {
@@ -48,7 +48,7 @@ public class Heap {
   }
 
   public int peek() {
-    if(isEmpty()) {
+    if (isEmpty()) {
       throw new NoSuchElementException("Heap is empty");
     }
     return data.get(0);
