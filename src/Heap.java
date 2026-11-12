@@ -36,7 +36,7 @@ public class Heap {
 
   public void add(int value) {
     data.add(value);
-    siftDown(data.size() -1);
+    siftUp(data.size() -1);
   }
 
   public int size() {
@@ -106,7 +106,7 @@ public class Heap {
       int smallest = i;
 
       if(left < data.size() && data.get(left) < data.get(smallest)) {
-        smallest = right;
+        smallest = left;
       }
 
       if(right < data.size() && data.get(right) < data.get(smallest)) {
