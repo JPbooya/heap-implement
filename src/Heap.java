@@ -55,13 +55,13 @@ public class Heap {
   }
 
   public int pop() {
-    if(isEmpty()) {
+    if (isEmpty()) {
       throw new NoSuchElementException("Heap is empty");
     }
     int root = data.get(0);
-    int last = data.remove(data.size() -1 );
+    int last = data.remove(data.size() - 1 );
 
-    if(!data.isEmpty()) {
+    if (!data.isEmpty()) {
       data.set(0, last);
       siftDown(0);
     }
@@ -90,7 +90,7 @@ public class Heap {
   }
 
   private void siftUp(int i) {
-    while(i > 0 && data.get(i) < data.get(parent(i))) {
+    while (i > 0 && data.get(i) < data.get(parent(i))) {
       swap(i, parent(i));
       i = parent(i);
     }
